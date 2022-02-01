@@ -1,16 +1,35 @@
-function gradingStudents(grades) {
-    // Write your code here
-    const arr = [];
-    for (let i =0; i < grades.length; i++) {
-        const otherNumber = Math.ceil(grades[i] / 5)*5;
-        if (otherNumber - grades[i] < 3 && grades[i] > 37){
-            arr.push(otherNumber);
-        } else {
-            arr.push(grades[i]);
-        }
-    }
-console.log(arr);
-return arr
+process.stdin.resume();
+process.stdin.setEncoding('ascii');
+
+var input_stdin = "";
+var input_stdin_array = "";
+var input_currentline = 0;
+
+process.stdin.on('data', function (data) {
+    input_stdin += data;
+});
+
+process.stdin.on('end', function () {
+    input_stdin_array = input_stdin.split("\n");
+    main();    
+});
+
+function readLine() {
+    return input_stdin_array[input_currentline++];
+}
+
+function solveMeFirst(a, b) {
+  // Hint: Type return a+b below   
+  return a+b
+}
+
+
+function main() {
+    var a = parseInt(readLine());
+    var b = parseInt(readLine());;
+
+    var res = solveMeFirst(a, b);
+    console.log(res);
 }
 
 //this worked
