@@ -1,35 +1,22 @@
-process.stdin.resume();
-process.stdin.setEncoding('ascii');
-
-var input_stdin = "";
-var input_stdin_array = "";
-var input_currentline = 0;
-
-process.stdin.on('data', function (data) {
-    input_stdin += data;
-});
-
-process.stdin.on('end', function () {
-    input_stdin_array = input_stdin.split("\n");
-    main();    
-});
-
-function readLine() {
-    return input_stdin_array[input_currentline++];
+function countApplesAndOranges(s, t, a, b, apples, oranges) {
+    // Write your code here
+   const appleTree = a;
+   const orangeTree = b;
+   let applesInside = 0;
+   let orangesInside = 0;
+   for (let i = 0; i < apples.length; i++){
+       let currentLocation = apples[i] + a;
+       if (currentLocation >= s && currentLocation <= t){
+           applesInside++;
+       }
+   }
+   for (let i = 0; i < oranges.length; i++){
+       let currentLocation = oranges[i] + b;
+       if (currentLocation >= s && currentLocation <= t){
+           orangesInside++;
+       }
+       
+   }
+   console.log(applesInside);
+   console.log(orangesInside);
 }
-
-function solveMeFirst(a, b) {
-  // Hint: Type return a+b below   
-  return a+b
-}
-
-
-function main() {
-    var a = parseInt(readLine());
-    var b = parseInt(readLine());;
-
-    var res = solveMeFirst(a, b);
-    console.log(res);
-}
-
-//this worked
